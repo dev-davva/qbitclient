@@ -9,17 +9,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/qbitclient.okhttp-gson" />
-          </set>
-        </option>
-      </GradleProjectSettings>
-      <GradleProjectSettings>
-        <option name="externalProjectPath" value="$PROJECT_DIR$/qbitclient.okhttp3-gson" />
-        <option name="gradleHome" value="" />
-        <option name="gradleJvm" value="homebrew-17" />
-        <option name="modules">
-          <set>
-            <option value="$PROJECT_DIR$/qbitclient.okhttp3-gson" />
           </set>
         </option>
       </GradleProjectSettings>
