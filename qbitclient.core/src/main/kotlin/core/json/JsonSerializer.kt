@@ -1,4 +1,4 @@
-package json
+package core.json
 
 interface JsonSerializer {
     fun serialize(obj: Any): String

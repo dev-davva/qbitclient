@@ -1,9 +1,9 @@
-package builder
+package core.builder
 
-import QBitClient
-import api.authentication.HttpAuthentication
-import http.HttpClient
-import json.JsonSerializer
+import core.QBitClient
+import core.api.authentication.HttpAuthentication
+import core.http.HttpClient
+import core.json.JsonSerializer
 
 class QBitClientBuilder() {
 

@@ -1,7 +1,7 @@
-package builder
+package core.builder
 
-import QBitClient
-import api.authentication.Authentication
+import core.QBitClient
+import core.api.authentication.Authentication
 
 internal class QBitClientImpl(private val authentication: Authentication) :
     QBitClient {

@@ -3,8 +3,8 @@ plugins {
 }
 
 dependencies {
-    project(":qbitclient.core")
-    project(":qbitclient.implemented")
+    implementation(project(":qbitclient.core"))
+    implementation(project(":qbitclient.implemented"))
     testImplementation(kotlin("test"))
 }
 
