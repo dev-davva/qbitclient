@@ -1,22 +1,11 @@
-plugins {
-    kotlin("jvm") version "2.1.0"
-}
-
 group = "se.github.dev-davva"
 version = "1.0-SNAPSHOT"
 
-repositories {
-    mavenCentral()
-}
+subprojects {
+    group = rootProject.group
+    version = rootProject.version
 
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-kotlin {
-    jvmToolchain(17)
+    repositories {
+        mavenCentral()
+    }
 }

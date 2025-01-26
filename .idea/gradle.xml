@@ -9,6 +9,9 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/qbitclient.core" />
+            <option value="$PROJECT_DIR$/qbitclient.implemented" />
+            <option value="$PROJECT_DIR$/qbitclient.test" />
           </set>
         </option>
       </GradleProjectSettings>
