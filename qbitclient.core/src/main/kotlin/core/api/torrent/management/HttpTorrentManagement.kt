@@ -8,7 +8,6 @@ class HttpTorrentManagement(private val httpClient: HttpClient, private val json
     private val resourceUrl = "core/api/v2/torrents"
 
     override suspend fun getTorrentList(): List<TorrentInfo> {
-        // https://github.com/qbittorrent/qBittorrent/wiki/WebUI-API-(qBittorrent-4.1)#get-torrent-list
         return httpClient
             .get("$resourceUrl/info")
             .map { jsonSerializer.deserialize(it, TorrentInfo::class.java) }
