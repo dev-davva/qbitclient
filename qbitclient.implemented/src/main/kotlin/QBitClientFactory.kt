@@ -6,9 +6,9 @@ import implemented.json.GsonJsonSerializer
 object QBitClientFactory {
     private val clientBuilder = QBitClientBuilder()
 
-    fun createClient(): QBitClient {
+    fun createClient(baseUrl: String): QBitClient {
         return clientBuilder
-            .withHttpClient(OkHttpHttpClient())
+            .withHttpClient(OkHttpHttpClient(baseUrl))
             .withJsonSerializer(GsonJsonSerializer())
             .build()
     }

@@ -5,7 +5,7 @@ import core.api.authentication.HttpAuthentication
 import core.http.HttpClient
 import core.json.JsonSerializer
 
-class QBitClientBuilder() {
+class QBitClientBuilder {
 
     private lateinit var httpClient: HttpClient
     private lateinit var jsonSerializer: JsonSerializer
@@ -29,9 +29,17 @@ class QBitClientBuilder() {
             throw IllegalStateException("JsonSerializer is required")
         }
 
-        val authentication = HttpAuthentication(httpClient, jsonSerializer)
+        val authentication = HttpAuthentication(httpClient)
 
-        return QBitClientImpl(authentication)
+        return object : QBitClient {
+            override fun isAuthenticated(): Boolean {
+                return httpClient.isAuthenticated()
+            }
+
+            override suspend fun connect(username: String, password: String) {
+                authentication.login(username, password)
+            }
+        }
     }
 
 }

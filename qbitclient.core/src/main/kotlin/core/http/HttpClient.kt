@@ -1,8 +1,9 @@
 package core.http
 
-interface HttpClient {
+abstract class HttpClient(val baseUrl: String) {
 
-    suspend fun get(url: String): Sequence<String>
-    suspend fun post(url: String, body: String): Sequence<String>
+    abstract fun isAuthenticated(): Boolean
+    suspend abstract fun get(url: String): Sequence<String>
+    suspend abstract fun post(url: String, body: String, mediaType: String = "application/json"): Sequence<String>
 
 }
