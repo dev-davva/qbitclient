@@ -1,8 +1,13 @@
 package core
 
+import core.api.authentication.Authentication
+import core.api.torrent.management.TorrentManagement
+
 interface QBitClient {
 
     fun isAuthenticated(): Boolean
-    suspend fun connect(username: String, password: String)
+
+    val authentication: Authentication
+    val torrentManagement: TorrentManagement
 
 }

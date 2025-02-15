@@ -5,12 +5,18 @@ import core.json.JsonSerializer
 
 class HttpTorrentManagement(private val httpClient: HttpClient, private val jsonSerializer: JsonSerializer) :
     TorrentManagement {
-    private val resourceUrl = "core/api/v2/torrents"
+    private val resourceUrl = "api/v2/torrents"
 
     override suspend fun getTorrentList(): List<TorrentInfo> {
         return httpClient
             .get("$resourceUrl/info")
-            .map { jsonSerializer.deserialize(it, TorrentInfo::class.java) }
-            .toList()
+            .let {
+                if (it.isEmpty()) {
+                    return emptyList()
+                }
+                jsonSerializer
+                    .deserialize(it, Array<TorrentInfo>::class.java)
+                    .toList()
+            }
     }
 }

@@ -29,7 +29,7 @@ class OkHttpHttpClient(baseUrl: String) : HttpClient(baseUrl)  {
             .any { it.name == "SID" && it.expiresAt > System.currentTimeMillis() }
     }
 
-    override suspend fun get(url: String): Sequence<String> {
+    override suspend fun get(url: String): String {
         val request = Request.Builder()
             .url(buildUrl(url))
             .build()
@@ -40,10 +40,10 @@ class OkHttpHttpClient(baseUrl: String) : HttpClient(baseUrl)  {
             throw HttpException(response.code, response.message)
         }
 
-        return response.body?.source()?.buffer?.readUtf8()?.lineSequence() ?: emptySequence()
+        return response.body!!.string()
     }
 
-    override suspend fun post(url: String, body: String, mediaType: String): Sequence<String> {
+    override suspend fun post(url: String, body: String, mediaType: String): String {
         val request = Request.Builder()
             .url(buildUrl(url))
             .post(body.toRequestBody(mediaType.toMediaType()))
@@ -55,6 +55,6 @@ class OkHttpHttpClient(baseUrl: String) : HttpClient(baseUrl)  {
             throw HttpException(response.code, response.message)
         }
 
-        return response.body?.source()?.buffer?.readUtf8()?.lineSequence() ?: emptySequence()
+        return response.body!!.string()
     }
 }

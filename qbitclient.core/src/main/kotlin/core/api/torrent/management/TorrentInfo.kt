@@ -7,13 +7,13 @@ data class TorrentInfo(
      * The time when the torrent was added to the client (Unix Epoch)
      */
     @JsonProperty("added_on")
-    val addedOn: Int,
+    val addedOn: Long,
 
     /**
      * Amount of data left to download (bytes)
      */
     @JsonProperty("amount_left")
-    val amountLeft: Int,
+    val amountLeft: Long,
 
     /**
      * Whether this torrent is managed by Automatic Torrent Management
@@ -25,7 +25,7 @@ data class TorrentInfo(
      * Percentage of file pieces currently available
      */
     @JsonProperty("availability")
-    val availability: Int,
+    val availability: Long,
 
     /**
      * Category of the torrent
@@ -37,13 +37,13 @@ data class TorrentInfo(
      * Amount of transfer data completed (bytes)
      */
     @JsonProperty("completed")
-    val completed: Int,
+    val completed: Long,
 
     /**
      * Time when the torrent completed (Unix Epoch)
      */
     @JsonProperty("completion_on")
-    val completionOn: Int,
+    val completionOn: Long,
 
     /**
      * Absolute path of torrent content (root path for multifile torrents, absolute file path for singlefile torrents)
@@ -55,31 +55,31 @@ data class TorrentInfo(
      * Torrent download speed limit (bytes/s). -1 if unlimited.
      */
     @JsonProperty("dl_limit")
-    val dlLimit: Int,
+    val dlLimit: Long,
 
     /**
      * Torrent download speed (bytes/s)
      */
     @JsonProperty("dlspeed")
-    val dlspeed: Int,
+    val dlspeed: Long,
 
     /**
      * Amount of data downloaded
      */
     @JsonProperty("downloaded")
-    val downloaded: Int,
+    val downloaded: Long,
 
     /**
      * Amount of data downloaded this session
      */
     @JsonProperty("downloaded_session")
-    val downloadedSession: Int,
+    val downloadedSession: Long,
 
     /**
      * Torrent ETA (seconds)
      */
     @JsonProperty("eta")
-    val eta: Int,
+    val eta: Long,
 
     /**
      * True if first last piece are prioritized
@@ -103,7 +103,7 @@ data class TorrentInfo(
      * Last time when a chunk was downloaded/uploaded (Unix Epoch)
      */
     @JsonProperty("last_activity")
-    val lastActivity: Int,
+    val lastActivity: Long,
 
     /**
      * Magnet URI corresponding to this torrent
@@ -121,7 +121,7 @@ data class TorrentInfo(
      * Maximum seeding time (seconds) until torrent is stopped from seeding
      */
     @JsonProperty("max_seeding_time")
-    val maxSeedingTime: Int,
+    val maxSeedingTime: Long,
 
     /**
      * Torrent name
@@ -133,31 +133,31 @@ data class TorrentInfo(
      * Number of seeds in the swarm
      */
     @JsonProperty("num_complete")
-    val numComplete: Int,
+    val numComplete: Long,
 
     /**
      * Number of leechers in the swarm
      */
     @JsonProperty("num_incomplete")
-    val numIncomplete: Int,
+    val numIncomplete: Long,
 
     /**
      * Number of leechers connected to
      */
     @JsonProperty("num_leechs")
-    val numLeechs: Int,
+    val numLeechs: Long,
 
     /**
      * Number of seeds connected to
      */
     @JsonProperty("num_seeds")
-    val numSeeds: Int,
+    val numSeeds: Long,
 
     /**
      * Torrent priority. Returns -1 if queuing is disabled or torrent is in seed mode
      */
     @JsonProperty("priority")
-    val priority: Int,
+    val priority: Long,
 
     /**
      * Torrent progress (percentage/100)
@@ -187,13 +187,13 @@ data class TorrentInfo(
      * TODO (what is different from max_seeding_time?) seeding_time_limit is a per torrent setting, when Automatic Torrent Management is disabled, furthermore then max_seeding_time is set to seeding_time_limit for this torrent. If Automatic Torrent Management is enabled, the value is -2. And if max_seeding_time is unset it have a default value -1.
      */
     @JsonProperty("seeding_time_limit")
-    val seedingTimeLimit: Int,
+    val seedingTimeLimit: Long,
 
     /**
      * Time when this torrent was last seen complete (Unix Epoch)
      */
     @JsonProperty("seen_complete")
-    val seenComplete: Int,
+    val seenComplete: Long,
 
     /**
      * True if sequential download is enabled
@@ -205,7 +205,7 @@ data class TorrentInfo(
      * Total size (bytes) of files selected for download
      */
     @JsonProperty("size")
-    val size: Int,
+    val size: Long,
 
     /**
      * Torrent state. See table here below for the possible values
@@ -229,13 +229,13 @@ data class TorrentInfo(
      * Total active time (seconds)
      */
     @JsonProperty("time_active")
-    val timeActive: Int,
+    val timeActive: Long,
 
     /**
      * Total size (bytes) of all file in this torrent (including unselected ones)
      */
     @JsonProperty("total_size")
-    val totalSize: Int,
+    val totalSize: Long,
 
     /**
      * The first tracker with working status. Returns empty string if no tracker is working.
@@ -247,25 +247,25 @@ data class TorrentInfo(
      * Torrent upload speed limit (bytes/s). -1 if unlimited.
      */
     @JsonProperty("up_limit")
-    val upLimit: Int,
+    val upLimit: Long,
 
     /**
      * Amount of data uploaded
      */
     @JsonProperty("uploaded")
-    val uploaded: Int,
+    val uploaded: Long,
 
     /**
      * Amount of data uploaded this session
      */
     @JsonProperty("uploaded_session")
-    val uploadedSession: Int,
+    val uploadedSession: Long,
 
     /**
      * Torrent upload speed (bytes/s)
      */
     @JsonProperty("upspeed")
-    val upspeed: Int
+    val upspeed: Long
 )
 
 

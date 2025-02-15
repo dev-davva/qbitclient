@@ -1,7 +1,11 @@
 package core.builder
 
 import core.QBitClient
+import core.api.authentication.Authentication
 import core.api.authentication.HttpAuthentication
+import core.api.torrent.management.HttpTorrentManagement
+import core.api.torrent.management.TorrentInfo
+import core.api.torrent.management.TorrentManagement
 import core.http.HttpClient
 import core.json.JsonSerializer
 
@@ -29,16 +33,13 @@ class QBitClientBuilder {
             throw IllegalStateException("JsonSerializer is required")
         }
 
-        val authentication = HttpAuthentication(httpClient)
-
         return object : QBitClient {
             override fun isAuthenticated(): Boolean {
                 return httpClient.isAuthenticated()
             }
 
-            override suspend fun connect(username: String, password: String) {
-                authentication.login(username, password)
-            }
+            override val authentication: Authentication = HttpAuthentication(httpClient)
+            override val torrentManagement: TorrentManagement = HttpTorrentManagement(httpClient, jsonSerializer)
         }
     }
 
